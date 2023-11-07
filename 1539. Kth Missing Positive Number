@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int findKthPositive(vector<int>& arr, int k) {
+        vector<int>ans;
+        int i = 0;
+        int add = 1;
+        while(i < arr.size()){
+            if(add != arr[i]){
+                ans.push_back(add);
+                add++;
+            }
+            else{
+                i++;
+                add++;
+            }
+        }
+        while(ans.size() < k){
+            ans.push_back(add);
+            add++;
+        }
+        // for(auto it:ans){
+        //     cout << it << " ";
+        // }
+        return ans[k - 1];
+    }
+};
